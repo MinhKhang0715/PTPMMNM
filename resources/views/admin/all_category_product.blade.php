@@ -1,6 +1,6 @@
 @extends('admin_layout')
-@section('admin_content')      
-        <div class="table-agile-info">
+@section('admin_content')
+<div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
       Liệt Kê Danh Mục Sản Phẩm
@@ -13,7 +13,7 @@
           <option value="2">Bulk edit</option>
           <option value="3">Export</option>
         </select>
-        <button class="btn btn-sm btn-default">Apply</button>                
+        <button class="btn btn-sm btn-default">Apply</button>
       </div>
       <div class="col-sm-4">
       </div>
@@ -28,12 +28,12 @@
     </div>
 
     <div class="table-responsive">
-      <?php 
-        $message = Session::get('message');
-            if($message){
-              echo '<span class="text-alert">',$message.'</span>';
-              Session::put('message',null);
-            }
+      <?php
+      $message = Session::get('message');
+      if ($message) {
+        echo '<span class="text-alert">', $message . '</span>';
+        Session::put('message', null);
+      }
       ?>
       <table class="table table-striped b-t b-light">
         <thead>
@@ -50,29 +50,29 @@
         </thead>
         <tbody>
           <!-- Hàm gọi dữ liệu đã lấy từ function category đổ vào table -->
-          @foreach($all_category_product as $key => $cate_pro) 
+          @foreach($all_category_product as $key => $cate_pro)
           <tr>
             <!-- <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td> -->
             <td>{{ $cate_pro->category_name }}</td>
             <td><span class="text-ellipsis">
 
-              <!-- Ẩn Hiện sản phẩm theo status -->
-              <?php
-              if($cate_pro->category_status == 0){
+                <!-- Ẩn Hiện sản phẩm theo status -->
+                <?php
+                if ($cate_pro->category_status == 0) {
                 ?>
-                  <a href="{{URL::to('/unactive-category-product/'.$cate_pro->category_id)}}"><span class="fa-thumb-styling fa fa-thumbs-up"></span></a> 
-                <!--icon ẩn sản phẩm , a href khi click dựa vào id trên DB thay đổi status = 0,$cate_pro lấy giá trị id -->
+                  <a href="{{URL::to('/unactive-category-product/'.$cate_pro->category_id)}}"><span class="fa-thumb-styling fa fa-thumbs-up"></span></a>
+                  <!--icon ẩn sản phẩm , a href khi click dựa vào id trên DB thay đổi status = 0,$cate_pro lấy giá trị id -->
                 <?php
 
-                 }else{
+                } else {
 
-                 ?>   
-               
+                ?>
+
                   <a href="{{URL::to('/active-category-product/'.$cate_pro->category_id)}}"><span class="fa-thumb-styling fa fa-thumbs-down"></span></a> <!-- icon hiện sản phẩm phương thức y như trên -->
-                  <?php
+                <?php
                 }
-              ?>
-            </span></td>
+                ?>
+              </span></td>
 
             <!-- Nút edit Danh mục sản phẩm -->
             <td>
@@ -81,18 +81,18 @@
 
             </td>
           </tr>
-         @endforeach
+          @endforeach
 
         </tbody>
       </table>
     </div>
     <footer class="panel-footer">
       <div class="row">
-        
+
         <div class="col-sm-5 text-center">
-          
+
         </div>
-        <div class="col-sm-7 text-right text-center-xs">                
+        <div class="col-sm-7 text-right text-center-xs">
           <ul class="pagination pagination-sm m-t-none m-b-none">
             {!! $all_category_product->links() !!}
           </ul>
@@ -101,4 +101,4 @@
     </footer>
   </div>
 </div>
-@endsection            
+@endsection

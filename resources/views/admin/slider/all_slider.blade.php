@@ -1,6 +1,6 @@
 @extends('admin_layout')
-@section('admin_content')      
-        <div class="table-agile-info">
+@section('admin_content')
+<div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
       Liệt Kê Slider Banner
@@ -13,7 +13,7 @@
           <option value="2">Bulk edit</option>
           <option value="3">Export</option>
         </select>
-        <button class="btn btn-sm btn-default">Apply</button>                
+        <button class="btn btn-sm btn-default">Apply</button>
       </div>
       <div class="col-sm-4">
       </div>
@@ -28,12 +28,12 @@
     </div>
 
     <div class="table-responsive">
-      <?php 
-        $message = Session::get('message');
-            if($message){
-              echo '<span class="text-alert">',$message.'</span>';
-              Session::put('message',null);
-            }
+      <?php
+      $message = Session::get('message');
+      if ($message) {
+        echo '<span class="text-alert">', $message . '</span>';
+        Session::put('message', null);
+      }
       ?>
       <table class="table table-striped b-t b-light">
         <thead>
@@ -52,31 +52,31 @@
         </thead>
         <tbody>
           <!-- Hàm gọi dữ liệu đã lấy từ function slider đổ vào table -->
-          @foreach($all_slider_banner as $key => $slide) 
+          @foreach($all_slider_banner as $key => $slide)
           <tr>
-           <!--  <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td> -->
+            <!--  <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td> -->
             <td>{{ $slide->slider_name }}</td>
-            <td><img src= "public/uploads/slider/{{ $slide->slider_image }}" height="150" width="350"> </td> 
+            <td><img src="public/uploads/slider/{{ $slide->slider_image }}" height="150" width="350"> </td>
             <td>{{ $slide->slider_desc }}</td>
             <td><span class="text-ellipsis">
 
-              <!-- Ẩn Hiện sản phẩm theo status -->
-              <?php
-              if($slide->slider_status == 0){
+                <!-- Ẩn Hiện sản phẩm theo status -->
+                <?php
+                if ($slide->slider_status == 0) {
                 ?>
-                  <a href="{{URL::to('/unactive-slider/'.$slide->slider_id)}}"><span class="fa-thumb-styling fa fa-thumbs-up"></span></a> 
-                <!--icon ẩn sản phẩm , a href khi click dựa vào id trên DB thay đổi status = 0,$slide lấy giá trị id -->
+                  <a href="{{URL::to('/unactive-slider/'.$slide->slider_id)}}"><span class="fa-thumb-styling fa fa-thumbs-up"></span></a>
+                  <!--icon ẩn sản phẩm , a href khi click dựa vào id trên DB thay đổi status = 0,$slide lấy giá trị id -->
                 <?php
 
-                 }else{
+                } else {
 
-                 ?>   
-               
+                ?>
+
                   <a href="{{URL::to('/active-slider/'.$slide->slider_id)}}"><span class="fa-thumb-styling fa fa-thumbs-down"></span></a> <!-- icon hiện sản phẩm phương thức y như trên -->
-                  <?php
+                <?php
                 }
-              ?>
-            </span></td>
+                ?>
+              </span></td>
 
             <!-- Nút edit Slider -->
 
@@ -84,22 +84,22 @@
               <a href="{{URL::to('/edit-slider/'.$slide->slider_id)}}" class="active stying-edit" ui-toggle-class="">
                 <i class="fa fa-pencil-square-o text-success text-active"></i></a>
 
-              <a onclick="return confirm('Bạn có muốn xóa slider này không')" href="{{URL::to('/delete-slider/'.$slide->slider_id)}}" class="active styling-delete" ui-toggle-class="">  
+              <a onclick="return confirm('Bạn có muốn xóa slider này không')" href="{{URL::to('/delete-slider/'.$slide->slider_id)}}" class="active styling-delete" ui-toggle-class="">
                 <i class="fa fa-times text-danger text"></i>
             </td>
           </tr>
-         @endforeach
+          @endforeach
 
         </tbody>
       </table>
     </div>
     <footer class="panel-footer">
       <div class="row">
-        
+
         <div class="col-sm-5 text-center">
           <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
         </div>
-        <div class="col-sm-7 text-right text-center-xs">                
+        <div class="col-sm-7 text-right text-center-xs">
           <ul class="pagination pagination-sm m-t-none m-b-none">
             <li><a href=""><i class="fa fa-chevron-left"></i></a></li>
             <li><a href="">1</a></li>
@@ -113,4 +113,4 @@
     </footer>
   </div>
 </div>
-@endsection            
+@endsection

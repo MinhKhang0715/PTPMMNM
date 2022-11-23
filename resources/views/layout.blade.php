@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-------SEO------->
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta name="keywords" content="Cellphone shop"/>
-    <meta name="robots" content="INDEX,FOLLOW"/>
+    <meta name="keywords" content="Cellphone shop" />
+    <meta name="robots" content="INDEX,FOLLOW" />
     <link rel="stylesheet" href="http://localhost/web2/">
     <meta charset="utf-8">
 
@@ -28,18 +29,21 @@
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
-    <![endif]-->       
+    <![endif]-->
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{('public/frontend/images/ico/apple-touch-icon-144-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{('public/frontend/images/ico/apple-touch-icon-114-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{('public/frontend/images/ico/apple-touch-icon-72-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" href="{{('public/frontend/images/ico/apple-touch-icon-57-precomposed.png')}}">
 
-</head><!--/head-->
+</head>
+<!--/head-->
 
 <body>
-    <header id="header"><!--header-->
-        <div class="header_top"><!--header_top-->
+    <header id="header">
+        <!--header-->
+        <div class="header_top">
+            <!--header_top-->
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
@@ -63,9 +67,11 @@
                     </div>
                 </div>
             </div>
-        </div><!--/header_top-->
-        
-        <div class="header-middle"><!--header-middle-->
+        </div>
+        <!--/header_top-->
+
+        <div class="header-middle">
+            <!--header-middle-->
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4">
@@ -83,7 +89,7 @@
                                     <li><a href="#">UK</a></li>
                                 </ul>
                             </div>
-                            
+
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
                                     DOLLAR
@@ -103,61 +109,63 @@
                                 <li><a href="#"><i class="fa fa-star"></i> Yêu Thích</a></li>
 
 
-<!-- Hàm Kiểm tra đã đăng nhập chưa nếu chưa thì trả ra giao diện đăng kí login-checkout , rồi thì kiểm tra đã nhập thông tin nhận hàng chưa nếu chưa thì trả về giao diện thông tin nhận hàng checkout , rồi thi trả về giao diện thanh toán payment-->
-
-                                <?php 
-                                    $customer_id = Session::get('customer_id');
-                                    $shipping_id = Session::get('shipping_id');
-                                    if($customer_id != NULL && $shipping_id == NULL){
-                                ?>
-
-                                     <li><a href="{{URL::to('/checkout')}}"><i class="fa fa-crosshairs"></i> Thanh Toán</a></li>
+                                <!-- Hàm Kiểm tra đã đăng nhập chưa nếu chưa thì trả ra giao diện đăng kí login-checkout , rồi thì kiểm tra đã nhập thông tin nhận hàng chưa nếu chưa thì trả về giao diện thông tin nhận hàng checkout , rồi thi trả về giao diện thanh toán payment-->
 
                                 <?php
-                                    }elseif($customer_id != NULL && $shipping_id != NULL){
+                                $customer_id = Session::get('customer_id');
+                                $shipping_id = Session::get('shipping_id');
+                                if ($customer_id != NULL && $shipping_id == NULL) {
                                 ?>
 
-                                     <li><a href="{{URL::to('/payment')}}"><i class="fa fa-crosshairs"></i> Thanh Toán</a></li>
+                                    <li><a href="{{URL::to('/checkout')}}"><i class="fa fa-crosshairs"></i> Thanh Toán</a></li>
 
                                 <?php
-                                     }else{ 
+                                } elseif ($customer_id != NULL && $shipping_id != NULL) {
                                 ?>
 
-                                <li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-crosshairs"></i> Thanh Toán</a></li>
+                                    <li><a href="{{URL::to('/payment')}}"><i class="fa fa-crosshairs"></i> Thanh Toán</a></li>
 
                                 <?php
-                                     }
+                                } else {
                                 ?>
-                               
+
+                                    <li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-crosshairs"></i> Thanh Toán</a></li>
+
+                                <?php
+                                }
+                                ?>
+
                                 <li><a href="{{URL::to('/show-cart-ajax')}}"><i class="fa fa-shopping-cart"></i> Giỏ Hàng</a></li>
 
-<!-- Hàm Kiểm tra đã đăng nhập chưa nếu chưa thì trả ra nút đăng nhập , rồi thì trả ra nút đăng xuất-->
-                                <?php 
-                                    $customer_id = Session::get('customer_id');
-                                    if($customer_id != NULL){
+                                <!-- Hàm Kiểm tra đã đăng nhập chưa nếu chưa thì trả ra nút đăng nhập , rồi thì trả ra nút đăng xuất-->
+                                <?php
+                                $customer_id = Session::get('customer_id');
+                                if ($customer_id != NULL) {
                                 ?>
 
                                     <li><a href="{{URL::to('/logout-checkout')}}"><i class="fa fa-lock"></i> Đăng Xuất</a></li>
 
                                 <?php
-                                    }else{
+                                } else {
                                 ?>
 
                                     <li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-lock"></i> Đăng Nhập</a></li>
 
                                 <?php
-                                     }
+                                }
                                 ?>
-                                
-                                
+
+
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </div><!--/header-middle-->
-    
-        <div class="header-bottom"><!--header-bottom-->
+        </div>
+        <!--/header-middle-->
+
+        <div class="header-bottom">
+            <!--header-bottom-->
             <div class="container">
                 <div class="row">
                     <div class="col-sm-8">
@@ -175,36 +183,39 @@
                                 <li class="dropdown"><a href="{{URL::to('san-pham')}}">Sản Phẩm<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="{{URL::to('trang-chu')}}">Products</a></li>
- 
+
                                     </ul>
-                                </li> 
+                                </li>
                                 <li class="dropdown"><a href="#">Tin Tức<i class="fa fa-angle-down"></i></a>
-                                   
-                                </li> 
+
+                                </li>
                                 <li><a href="{{URL::to('/show-cart-ajax')}}">Giỏ Hàng</a></li>
                                 <li><a href="{{URL::to('trang-chu')}}">Liên Hệ</a></li>
                             </ul>
                         </div>
                     </div>
 
-<!--Tìm Kiếm Sản Phẩm -->
+                    <!--Tìm Kiếm Sản Phẩm -->
                     <div class="col-sm-4">
                         <form action="{{URL::to('/tim-kiem')}}" method="GET">
                             {{csrf_field() }}
-                        <div class="search_box pull-right">
-                            <input type="text" name="keywords_submit" placeholder="Tìm Kiếm Sản Phẩm"/>
-                            <input type="submit" style="margin-top:0;color:white;"name="Search_items" class="btn btn-primary btn-sm"  />
-                        </div>
+                            <div class="search_box pull-right">
+                                <input type="text" name="keywords_submit" placeholder="Tìm Kiếm Sản Phẩm" />
+                                <input type="submit" style="margin-top:0;color:white;" name="Search_items" class="btn btn-primary btn-sm" />
+                            </div>
                         </form>
                     </div>
 
 
                 </div>
             </div>
-        </div><!--/header-bottom-->
-    </header><!--/header-->
-    
-    <section id="slider"><!--slider-->
+        </div>
+        <!--/header-bottom-->
+    </header>
+    <!--/header-->
+
+    <section id="slider">
+        <!--slider-->
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -214,25 +225,25 @@
                             <li data-target="#slider-carousel" data-slide-to="1"></li>
                             <li data-target="#slider-carousel" data-slide-to="2"></li>
                         </ol>
-                        
+
                         <div class="carousel-inner">
                             @php
-                                $i = 0;
+                            $i = 0;
                             @endphp
                             @foreach($slider as $key => $slide)
-                                @php
-                                    $i++;
-                                @endphp
-                                <div class="item {{$i==1 ? 'active' : ''}}">
-                                
-                                    <div class="col-sm-12">
-                                        <img src="{{URL::to('public/uploads/slider/'.$slide->slider_image)}}"  height="350" width="950" />
-                                    
-                                    </div>
+                            @php
+                            $i++;
+                            @endphp
+                            <div class="item {{$i==1 ? 'active' : ''}}">
+
+                                <div class="col-sm-12">
+                                    <img src="{{URL::to('public/uploads/slider/'.$slide->slider_image)}}" height="350" width="950" />
+
                                 </div>
+                            </div>
                             @endforeach
                         </div>
-                        
+
                         <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
                             <i class="fa fa-angle-left"></i>
                         </a>
@@ -240,19 +251,21 @@
                             <i class="fa fa-angle-right"></i>
                         </a>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
-    </section><!--/slider-->
-    
+    </section>
+    <!--/slider-->
+
     <section>
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
                     <div class="left-sidebar">
                         <h2>Danh Mục Sản Phẩm</h2>
-                        <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+                        <div class="panel-group category-products" id="accordian">
+                            <!--category-productsr-->
                             <!-- Hiện danh mục sản phẩm -->
                             @foreach($category as $key => $cate)
                             <div class="panel panel-default">
@@ -262,45 +275,51 @@
                             </div>
                             @endforeach
 
-                        </div><!--/category-products-->
-                    
-        <div class="brands_products"><!--brands_products-->
-                        <h2>Thương Hiệu Sản Phẩm</h2>
+                        </div>
+                        <!--/category-products-->
+
+                        <div class="brands_products">
+                            <!--brands_products-->
+                            <h2>Thương Hiệu Sản Phẩm</h2>
                             <div class="brands-name">
                                 <ul class="nav nav-pills nav-stacked">
-                            <!-- Hiện danh mục sản phẩm -->
-                            @foreach($brand as $key => $brand)
+                                    <!-- Hiện danh mục sản phẩm -->
+                                    @foreach($brand as $key => $brand)
                                     <li><a href="{{URL::to('/thuong-hieu-san-pham/'.$brand->brand_id)}}"> {{$brand->brand_name}}</a></li>
-                            @endforeach        
+                                    @endforeach
                                 </ul>
                             </div>
-                        </div><!--/brands_products-->
-                        
-                        <div class="price-range"><!--price-range-->
+                        </div>
+                        <!--/brands_products-->
+
+                        <div class="price-range">
+                            <!--price-range-->
                             <h2>Price Range</h2>
                             <div class="well text-center">
-                                 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
-                                 <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
+                                <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br />
+                                <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
                             </div>
-                        </div><!--/price-range-->
-                        
+                        </div>
+                        <!--/price-range-->
+
 
                     </div>
                 </div>
-                
+
                 <div class="col-sm-9 padding-right">
                     <div id="table_data">
 
-                    @yield('content')
-                    
+                        @yield('content')
+
                     </div>
-                    
+
                 </div>
             </div>
         </div>
     </section>
-    
-    <footer id="footer"><!--Footer-->
+
+    <footer id="footer">
+        <!--Footer-->
         <div class="footer-top">
             <div class="container">
                 <div class="row">
@@ -311,14 +330,14 @@
                         </div>
                     </div>
 
-                    </div>
-                    <div class="col-sm-3">
-                       
-                    </div>
+                </div>
+                <div class="col-sm-3">
+
                 </div>
             </div>
         </div>
-        
+        </div>
+
         <div class="footer-widget">
             <div class="container">
                 <div class="row">
@@ -380,11 +399,11 @@
                             </form>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
-        
+
         <div class="footer-bottom">
             <div class="container">
                 <div class="row">
@@ -393,11 +412,12 @@
                 </div>
             </div>
         </div>
-        
-    </footer><!--/Footer-->
-    
 
-  
+    </footer>
+    <!--/Footer-->
+
+
+
     <script src="{{asset('public/frontend/js/jquery.js')}}"></script>
     <script src="{{asset('public/frontend/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('public/frontend/js/jquery.scrollUp.min.js')}}"></script>
@@ -405,83 +425,96 @@
     <script src="{{asset('public/frontend/js/jquery.prettyPhoto.js')}}"></script>
     <script src="{{asset('public/frontend/js/main.js')}}"></script>
 
-    <script src="{{asset('public/frontend/js/sweetalert.min.js')}} "></script> 
-    <script src="{{asset('public/frontend/js/lightgallery-all.min.js')}} "></script> 
-    <script src="{{asset('public/frontend/js/lightslider.js')}} "></script> 
-    <script src="{{asset('public/frontend/js/prettify.js')}} "></script> 
+    <script src="{{asset('public/frontend/js/sweetalert.min.js')}} "></script>
+    <script src="{{asset('public/frontend/js/lightgallery-all.min.js')}} "></script>
+    <script src="{{asset('public/frontend/js/lightslider.js')}} "></script>
+    <script src="{{asset('public/frontend/js/prettify.js')}} "></script>
 
     <script type="text/javascript">
         $(document).ready(function() {
-        $('#imageGallery').lightSlider({
-            gallery:true,
-            item:1,
-            loop:true,
-            thumbItem:9,
-            slideMargin:0,
-            enableDrag: false,
-            currentPagerPosition:'left',
-            onSliderLoad: function(el) {
-                el.lightGallery({
-                    selector: '#imageGallery .lslide'
-                });
-            }   
-        });  
-    });
-    </script>
-
-    <script type="text/javascript">
-        $('.login_customer').click(function(){
-          
-                    var email = $('.email').val();
-                    var password = $('.password').val();
-                    var _token = $('input[name="_token"]').val();
-
-                    $.ajax({
-
-                    url: '{{URL('/login-customer-ajax')}}',
-                    method: 'POST',
-                    data:{password:password,email:email,_token:_token},
-
-                    success:function(data){
-                         if(data=='sai'){
-                           
-                               
-                               $('#thongbaodangnhap').text('Tài khoản hoặc mật khẩu sai,xin đăng nhập lại.');
-                                 $("#thongbaodangnhap").fadeIn('slow').delay(2000).fadeOut('slow');
-                           
-                          
-                         }else{
-                            var url = '{{ env('APP_URL') }}'; //lấy đường dẫn project trong file .env dòng APP_URL
-                            window.location.href = url+'/checkout';
-                         }
-
-                    }   
-
-                    });  
+            $('#imageGallery').lightSlider({
+                gallery: true,
+                item: 1,
+                loop: true,
+                thumbItem: 9,
+                slideMargin: 0,
+                enableDrag: false,
+                currentPagerPosition: 'left',
+                onSliderLoad: function(el) {
+                    el.lightGallery({
+                        selector: '#imageGallery .lslide'
+                    });
+                }
+            });
         });
     </script>
 
     <script type="text/javascript">
-        $(document).ready(function(){
+        $('.login_customer').click(function() {
 
-            $('.add-to-cart').click(function(){
-                    var id = $(this).data('id_product');
-                    var cart_product_id = $('.cart_product_id_' + id).val();
-                    var cart_product_name = $('.cart_product_name_' + id).val();
-                    var cart_product_image = $('.cart_product_image_' + id).val();
-                    var cart_product_quantity = $('.cart_product_quantity_' + id).val();
-                    var cart_product_price = $('.cart_product_price_' + id).val();
-                    var cart_product_qty = $('.cart_product_qty_' + id).val();
-                    var _token = $('input[name="_token"]').val();
+            var email = $('.email').val();
+            var password = $('.password').val();
+            var _token = $('input[name="_token"]').val();
 
-                    $.ajax({
+            $.ajax({
 
-                    url: '{{URL('/add-cart-ajax')}}',
+                url: '{{URL(' / login - customer - ajax ')}}',
+                method: 'POST',
+                data: {
+                    password: password,
+                    email: email,
+                    _token: _token
+                },
+
+                success: function(data) {
+                    if (data == 'sai') {
+
+
+                        $('#thongbaodangnhap').text('Tài khoản hoặc mật khẩu sai,xin đăng nhập lại.');
+                        $("#thongbaodangnhap").fadeIn('slow').delay(2000).fadeOut('slow');
+
+
+                    } else {
+                        var url = '{{ env('
+                        APP_URL ') }}'; //lấy đường dẫn project trong file .env dòng APP_URL
+                        window.location.href = url + '/checkout';
+                    }
+
+                }
+
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('.add-to-cart').click(function() {
+                var id = $(this).data('id_product');
+                var cart_product_id = $('.cart_product_id_' + id).val();
+                var cart_product_name = $('.cart_product_name_' + id).val();
+                var cart_product_image = $('.cart_product_image_' + id).val();
+                var cart_product_quantity = $('.cart_product_quantity_' + id).val();
+                var cart_product_price = $('.cart_product_price_' + id).val();
+                var cart_product_qty = $('.cart_product_qty_' + id).val();
+                var _token = $('input[name="_token"]').val();
+
+                $.ajax({
+
+                    url: '{{URL(' / add - cart - ajax ')}}',
                     method: 'POST',
-                    data:{cart_product_id:cart_product_id,cart_product_name:cart_product_name,cart_product_image:cart_product_image,cart_product_quantity:cart_product_quantity,cart_product_price:cart_product_price,cart_product_qty:cart_product_qty,_token:_token},
+                    data: {
+                        cart_product_id: cart_product_id,
+                        cart_product_name: cart_product_name,
+                        cart_product_image: cart_product_image,
+                        cart_product_quantity: cart_product_quantity,
+                        cart_product_price: cart_product_price,
+                        cart_product_qty: cart_product_qty,
+                        _token: _token
+                    },
 
-                    success:function(data){
-                            swal({
+                    success: function(data) {
+                        swal({
                                 title: "Đã thêm sản phẩm vào giỏ hàng",
                                 text: "Bạn có thể mua hàng tiếp hoặc tới giỏ hàng để tiến hành thanh toán",
                                 showCancelButton: true,
@@ -494,73 +527,85 @@
                                 window.location.href = "{{url('/show-cart-ajax')}}";
                             });
 
-                    }   
+                    }
 
-                    });            
+                });
 
 
             });
         });
     </script>
     <script type="text/javascript">
-        function Addtocart(id){
+        function Addtocart(id) {
             var id = id;
-                    var cart_product_id = $('.cart_product_id_' + id).val();
-                    var cart_product_name = $('.cart_product_name_' + id).val();
-                    var cart_product_image = $('.cart_product_image_' + id).val();
-                    var cart_product_quantity = $('.cart_product_quantity_' + id).val();
-                    var cart_product_price = $('.cart_product_price_' + id).val();
-                    var cart_product_qty = $('.cart_product_qty_' + id).val();
-                    var _token = $('input[name="_token"]').val();
+            var cart_product_id = $('.cart_product_id_' + id).val();
+            var cart_product_name = $('.cart_product_name_' + id).val();
+            var cart_product_image = $('.cart_product_image_' + id).val();
+            var cart_product_quantity = $('.cart_product_quantity_' + id).val();
+            var cart_product_price = $('.cart_product_price_' + id).val();
+            var cart_product_qty = $('.cart_product_qty_' + id).val();
+            var _token = $('input[name="_token"]').val();
 
-                    $.ajax({
+            $.ajax({
 
-                    url: '{{URL('/add-cart-ajax')}}',
-                    method: 'POST',
-                    data:{cart_product_id:cart_product_id,cart_product_name:cart_product_name,cart_product_image:cart_product_image,cart_product_price:cart_product_price,cart_product_qty:cart_product_qty,_token:_token,cart_product_quantity:cart_product_quantity},
+                url: '{{URL(' / add - cart - ajax ')}}',
+                method: 'POST',
+                data: {
+                    cart_product_id: cart_product_id,
+                    cart_product_name: cart_product_name,
+                    cart_product_image: cart_product_image,
+                    cart_product_price: cart_product_price,
+                    cart_product_qty: cart_product_qty,
+                    _token: _token,
+                    cart_product_quantity: cart_product_quantity
+                },
 
-                    success:function(data){
-                            swal({
-                                title: "Đã thêm sản phẩm vào giỏ hàng",
-                                text: "Bạn có thể mua hàng tiếp hoặc tới giỏ hàng để tiến hành thanh toán",
-                                showCancelButton: true,
-                                cancelButtonText: "Xem tiếp",
-                                confirmButtonClass: "btn-success",
-                                confirmButtonText: "Đi đến giỏ hàng",
-                                closeOnConfirm: false
-                            },
-                            function() {
-                                window.location.href = "{{url('/show-cart-ajax')}}";
-                            });
+                success: function(data) {
+                    swal({
+                            title: "Đã thêm sản phẩm vào giỏ hàng",
+                            text: "Bạn có thể mua hàng tiếp hoặc tới giỏ hàng để tiến hành thanh toán",
+                            showCancelButton: true,
+                            cancelButtonText: "Xem tiếp",
+                            confirmButtonClass: "btn-success",
+                            confirmButtonText: "Đi đến giỏ hàng",
+                            closeOnConfirm: false
+                        },
+                        function() {
+                            window.location.href = "{{url('/show-cart-ajax')}}";
+                        });
 
-                    }   
+                }
 
-                    });  
+            });
         }
     </script>
     <script type="text/javascript">
         show_sanpham();
 
-        function show_sanpham(id = 1){
-            
+        function show_sanpham(id = 1) {
+
             $.ajax({
-                url:'{{url('/show-sanpham')}}',
-                method:"GET",
-                data:{id:id},
-                success:function(data){
+                url: '{{url(' / show - sanpham ')}}',
+                method: "GET",
+                data: {
+                    id: id
+                },
+                success: function(data) {
                     $('#show_sanpham').html(data);
                 }
 
-            }); 
+            });
         }
-        function pagination_sp(id){
+
+        function pagination_sp(id) {
             show_sanpham(id);
         }
     </script>
 
-    
- 
+
+
 
 
 </body>
+
 </html>

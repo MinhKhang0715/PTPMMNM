@@ -1,20 +1,20 @@
 @extends('admin_layout')
-@section('admin_content')    
+@section('admin_content')
 
-        <div class="table-agile-info">
+<div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
       Thông Tin Người Mua
     </div>
-    
+
 
     <div class="table-responsive">
-      <?php 
-        $message = Session::get('message');
-            if($message){
-              echo '<span class="text-alert">',$message.'</span>';
-              Session::put('message',null);
-            }
+      <?php
+      $message = Session::get('message');
+      if ($message) {
+        echo '<span class="text-alert">', $message . '</span>';
+        Session::put('message', null);
+      }
       ?>
       <table class="table table-striped b-t b-light">
         <thead>
@@ -26,14 +26,14 @@
           </tr>
         </thead>
         <tbody>
-         
+
           <tr>
-            
+
             <td>{{$order_by_id->customer_name}}</td>
             <td>{{$order_by_id->customer_phone}}</td>
-      
 
-            
+
+
 
           </tr>
 
@@ -41,25 +41,25 @@
         </tbody>
       </table>
     </div>
-    
+
   </div>
 </div>
 
 <br><br>
-        <div class="table-agile-info">
+<div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
       Thông Tin Vận Chuyển
     </div>
-    
+
 
     <div class="table-responsive">
-      <?php 
-        $message = Session::get('message');
-            if($message){
-              echo '<span class="text-alert">',$message.'</span>';
-              Session::put('message',null);
-            }
+      <?php
+      $message = Session::get('message');
+      if ($message) {
+        echo '<span class="text-alert">', $message . '</span>';
+        Session::put('message', null);
+      }
       ?>
       <table class="table table-striped b-t b-light">
         <thead>
@@ -72,15 +72,15 @@
           </tr>
         </thead>
         <tbody>
-         
+
           <tr>
-            
+
             <td>{{$order_by_id->shipping_name}}</td>
             <td>{{$order_by_id->shipping_address}}</td>
             <td>{{$order_by_id->shipping_phone}}</td>
-            
 
-            
+
+
 
           </tr>
 
@@ -88,7 +88,7 @@
         </tbody>
       </table>
     </div>
-    
+
   </div>
 </div>
 
@@ -106,7 +106,7 @@
           <option value="2">Bulk edit</option>
           <option value="3">Export</option>
         </select>
-        <button class="btn btn-sm btn-default">Apply</button>                
+        <button class="btn btn-sm btn-default">Apply</button>
       </div>
       <div class="col-sm-4">
       </div>
@@ -121,12 +121,12 @@
     </div>
 
     <div class="table-responsive">
-      <?php 
-        $message = Session::get('message');
-            if($message){
-              echo '<span class="text-alert">',$message.'</span>';
-              Session::put('message',null);
-            }
+      <?php
+      $message = Session::get('message');
+      if ($message) {
+        echo '<span class="text-alert">', $message . '</span>';
+        Session::put('message', null);
+      }
       ?>
       <table class="table table-striped b-t b-light">
         <thead>
@@ -144,7 +144,7 @@
           </tr>
         </thead>
         <tbody>
-        @foreach($order_d as $v_content)
+          @foreach($order_d as $v_content)
           <tr>
 
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
@@ -153,20 +153,20 @@
             <td>{{$v_content->product_price}}</td>
             <td>{{$v_content->product_price*$v_content->product_sales_quantity}}</td>
           </tr>
-        
+
           @endforeach
         </tbody>
       </table>
     </div>
     <footer class="panel-footer">
       <div class="row">
-        
+
         <div class="col-sm-5 text-center">
-          
+
         </div>
-        <div class="col-sm-7 text-right text-center-xs">                
+        <div class="col-sm-7 text-right text-center-xs">
           <ul class="pagination pagination-sm m-t-none m-b-none">
-           
+
 
           </ul>
         </div>
@@ -174,4 +174,4 @@
     </footer>
   </div>
 </div>
-@endsection            
+@endsection
