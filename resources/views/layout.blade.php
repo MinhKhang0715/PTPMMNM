@@ -182,7 +182,7 @@
                                    
                                 </li> 
                                 <li><a href="{{URL::to('/show-cart-ajax')}}">Giỏ Hàng</a></li>
-                                <li><a href="{{URL::to('trang-chu')}}">Liên Hệ</a></li>
+                                <li><a href="{{URL::to('lien-he')}}">Liên Hệ</a></li>
                             </ul>
                         </div>
                     </div>

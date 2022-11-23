@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LienheController;
 use App\Http\Controllers\Cart;
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ Route::get('/san-pham','App\Http\Controllers\HomeController@product');
 Route::get('san-pham/fetch_data','App\Http\Controllers\HomeController@fetch_data');
 Route::get('/tim-kiem','App\Http\Controllers\HomeController@search');
 Route::get('/show-sanpham','App\Http\Controllers\HomeController@show_sanpham');
-
+Route::get('/lien-he','App\Http\Controllers\LienheController@index');
 
 //Trang Chủ
 
