@@ -328,22 +328,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         lineWidth: 0,
         fillOpacity:0.85,
 			data: [
-				{period: '2015 Q1', iphone: 2668, ipad: null, itouch: 2649},
-				{period: '2015 Q2', iphone: 15780, ipad: 13799, itouch: 12051},
-				{period: '2015 Q3', iphone: 12920, ipad: 10975, itouch: 9910},
-				{period: '2015 Q4', iphone: 8770, ipad: 6600, itouch: 6695},
-				{period: '2016 Q1', iphone: 10820, ipad: 10924, itouch: 12300},
-				{period: '2016 Q2', iphone: 9680, ipad: 9010, itouch: 7891},
-				{period: '2016 Q3', iphone: 4830, ipad: 3805, itouch: 1598},
-				{period: '2016 Q4', iphone: 15083, ipad: 8977, itouch: 5185},
-				{period: '2017 Q1', iphone: 10697, ipad: 4470, itouch: 2038},
-			
+				{period: '2022 Q3', Ổcứng: 1334, Tablet: 500, Laptop: 1345, Tainghe: 520, Điệnthoại: 432},
+				{period: '2022 Q4', Ổcứng: 2668, Tablet: 1000, Laptop: 2649, Tainghe: 1103, Điệnthoại: 962},
+							
 			],
 			lineColors:['#eb6f6f','#926383','#eb6f6f'],
 			xkey: 'period',
             redraw: true,
-            ykeys: ['iphone', 'ipad', 'itouch'],
-            labels: ['All Visitors', 'Returning Visitors', 'Unique Visitors'],
+            ykeys: ['Ổcứng', 'Tablet', 'Laptop', 'Tainghe', 'Điệnthoại'],
+            labels: [''],
 			pointSize: 2,
 			hideHover: 'auto',
 			resize: true

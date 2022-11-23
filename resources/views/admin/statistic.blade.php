@@ -98,7 +98,7 @@
 						<div class="agileinfo-grap">
 							<div class="agileits-box">
 								<header class="agileits-box-header clearfix">
-									<h3>Visitor Statistics</h3>
+									<h3>Doanh thu</h3>
 										<div class="toolbar">
 											
 											
